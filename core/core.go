@@ -16,7 +16,11 @@ func GreetUser() string {
 }
 
 func print_defeat_message(user_answer string, answer string, user_name string) {
+	fmt.Printf("Ты проебал лошара! Твой ответ: %s. А правильный: %s\n",user_answer,answer)
+}
 
+func congrats()  {
+	fmt.Println("Поздравляю, ты выйграл в игре, хз возьми с полки пирожок")
 }
 
 func Choose() int {
@@ -38,7 +42,7 @@ func Choose() int {
 	return game
 }
 
-func Start(game func() (int, string), rule string, questions int, user_name string) bool {
+func Start(game func() (string, string), rule string, questions int, user_name string) bool {
 	var user_answer string
 	fmt.Println(rule)
 	for i := 0; i < questions; i++ {
@@ -50,7 +54,8 @@ func Start(game func() (int, string), rule string, questions int, user_name stri
 			print_defeat_message(user_answer, answer, user_name)
 			return false
 		}
-		fmt.Println("Correct!")
+		fmt.Println("Малаца, правильно\n")
 	}
+	congrats()
 	return true
 }
