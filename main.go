@@ -1,32 +1,34 @@
 package main
 
 import (
-	"brain_games/modules/calc"
-	"brain_games/modules/even"
-	"brain_games/modules/gcd"
-	"brain_games/modules/prime"
+	"brain_games/games/calc"
+	"brain_games/games/even"
+	"brain_games/games/gcd"
+	"brain_games/games/prime"
 	"brain_games/core"
 )
 
-const (
-	NUMBER_OF_QUESTIONS = 3
+const NUMBER_OF_QUESTIONS = 3
+type GameName uint8
+const(
+	Even GameName = iota
+	Calc
+	Prime
+	GCD
 )
 
 func main() {
 	name := core.GreetUser()
 	game_number := core.Choose()
-	if game_number == 0 {
-		return
-	}
 	switch game_number {
-	case 1:
-		core.Start(even.Generate_question_and_answer, even.Rule, NUMBER_OF_QUESTIONS, name)
-	case 2:
-		core.Start(calc.Generate_question_and_answer, calc.Rule, NUMBER_OF_QUESTIONS, name)
-	case 3:
-		core.Start(prime.Generate_question_and_answer, prime.Rule, NUMBER_OF_QUESTIONS, name)
-	case 4:
-		core.Start(gcd.Generate_question_and_answer, gcd.Rule, NUMBER_OF_QUESTIONS, name)
+	case int(Even):
+		core.Start(even.GenerateQuestionAndAnswer, even.RULE, NUMBER_OF_QUESTIONS, name)
+	case int(Calc):
+		core.Start(calc.GenerateQuestionAndAnswer, calc.RULE, NUMBER_OF_QUESTIONS, name)
+	case int(Prime):
+		core.Start(prime.GenerateQuestionAndAnswer, prime.RULE, NUMBER_OF_QUESTIONS, name)
+	case int(GCD):
+		core.Start(gcd.GenerateQuestionAndAnswer, gcd.RULE, NUMBER_OF_QUESTIONS, name)
 	}
 
 }

@@ -34,7 +34,7 @@ func Choose() int {
 		fmt.Println()
 		return Choose()
 	}
-	if game > 4 {
+	if game > 3 {
 		fmt.Println("НАПИШИ ЧИСЛО ЁПТА ОТ 1 ДО 4! БЕСИИИШЬ")
 		fmt.Println()
 		return Choose()

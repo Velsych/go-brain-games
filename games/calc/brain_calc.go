@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	Rule           = "What is the result of the expression?"
+	RULE           = "What is the result of the expression?"
 	MAX_GEN_NUMBER = 50
 	MIN_GEN_NUMBER = 5
 )
@@ -26,7 +26,7 @@ func calculate(number1 int, number2 int, operation string) string {
 	return result
 }
 
-func Generate_question_and_answer() (string, string) {
+func GenerateQuestionAndAnswer() (string, string) {
 	var sb strings.Builder
 	operations := []string{"*", "+", "-"}
 	number1 := rand.Intn(MAX_GEN_NUMBER-MIN_GEN_NUMBER+1) + MIN_GEN_NUMBER
